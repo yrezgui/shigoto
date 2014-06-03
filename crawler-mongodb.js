@@ -62,7 +62,7 @@ function crawler(db) {
       throw error;
     }
 
-    for (var i = 3; i >= 3; i--) {
+    for (var i = response.body.last_page; i >= 1; i--) {
       worker.push({ url: API_JOBS_URL, page: i });
     }
   });
