@@ -29,6 +29,7 @@
     "request": "~2.36.0",
     "rethinkdb": "~1.12.0-1",
     "async": "~0.9.0",
-    "mongodb": "~1.4.5"
+    "mongodb": "~1.4.5",
+    "cradle": "~0.6.7"
   }
 }
