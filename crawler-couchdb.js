@@ -18,7 +18,7 @@ function crawler(db) {
       json: true
     }, function finish(error, response, body) {
       if(error) {
-        console.error(error);
+        console.error('Page ' + task.page + 'fetch', error);
         return callback(error);
       }
 
@@ -30,7 +30,7 @@ function crawler(db) {
 
       db.save(response.body.jobs, function(error, result) {
         if(error) {
-          console.error(error);
+          console.error('Page ' + task.page + 'save', error);
           return callback(error);
         }
 

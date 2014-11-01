@@ -24,11 +24,13 @@ function crawler(client, finalCallback) {
       json: true
     }, function finish(error, response, body) {
       if(error) {
+        console.error('fetch', error);
         return callback(error);
       }
 
       rethink.table('jobs').insert(response.body.jobs).run(client, function(error, result) {
         if(error) {
+          console.error('save', error);
           return callback(error);
         }
         
@@ -41,6 +43,7 @@ function crawler(client, finalCallback) {
 
   worker.drain = function drain() {
     finalCallback('all items have been processed');
+    process.exit();
   };
 
   // First request help us to know how many pages there are
